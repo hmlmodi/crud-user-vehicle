@@ -1,4 +1,4 @@
-const userService = require('../../service/userService');
+const userService = require('../../../service/userService');
 
 exports.validateEmailNotExist = async (req, res, next) => {
   try {

@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 const userController = require('../controller/userContollers');
-const userValidationMiddleware = require('../middleware/validator/userValidation');
-const userMiddleware = require('../middleware/validator/userMiddleware');
+const userValidationMiddleware = require('../middleware/validator/user/userValidation');
+const userMiddleware = require('../middleware/validator/user/userMiddleware');
 const authenticateJWT = require('../../helper/jwt');
 
 
@@ -60,7 +60,7 @@ router.post(
 // Route: GET /users/getUserById/:id
 router.get(
     '/getUserVehicle/:id',
-    // authenticateJWT,
+    authenticateJWT,
     userValidationMiddleware.userIdValidation,
     userController.getUserVehicles
 );
